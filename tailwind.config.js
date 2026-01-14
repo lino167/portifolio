@@ -28,11 +28,16 @@ export default {
         'spin-slow': {
           'from': { transform: 'rotate(0deg)' },
           'to': { transform: 'rotate(360deg)' },
-        }
+        },
+        'text-shimmer': {
+          '0%': { backgroundPosition: '0% 50%' },
+          '100%': { backgroundPosition: '100% 50%' },
+        },
       },
       animation: {
         'float-slow': 'float-slow 6s ease-in-out infinite',
         'spin-slow': 'spin-slow 12s linear infinite',
+        'text-shimmer': 'text-shimmer 3s linear infinite',
       }
     },
   },
