@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfólio | Lino.dev</title>
-    <!-- AOS CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 
     <!-- Tailwind CSS CDN & Config -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -35,12 +33,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Inter', sans-serif; }
+        .letter { display: inline-block; } /* Required for Anime.js letter animation */
     </style>
 </head>
 <body class="bg-brand-light text-slate-800 dark:bg-brand-dark dark:text-slate-100 transition-colors duration-300 antialiased">
 
     <!-- Header -->
-    <header class="fixed w-full top-0 z-50 bg-white/80 dark:bg-brand-dark/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 transition-colors duration-300" data-aos="fade-down">
+    <header class="fixed w-full top-0 z-50 bg-white/80 dark:bg-brand-dark/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 transition-colors duration-300">
         <div class="container mx-auto px-6 h-20 flex justify-between items-center">
             <a href="#" class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent hover:scale-105 transition-transform">
                 Lino.dev
@@ -85,7 +84,7 @@
             <div class="absolute inset-0 bg-gradient-to-b from-blue-50/50 to-transparent dark:from-blue-900/10 dark:to-transparent -z-10"></div>
 
             <div class="max-w-4xl mx-auto">
-                <p class="hero-element text-brand-primary font-semibold tracking-wide mb-4">Olá, sou Zacarias Ramos</p>
+                <p id="hero-greeting" class="hero-element text-brand-primary font-semibold tracking-wide mb-4">Olá, sou Zacarias Ramos</p>
                 <h1 class="hero-element text-4xl md:text-6xl font-bold mb-6 leading-tight text-slate-900 dark:text-white">
                     De Mecânico Industrial a <br class="hidden md:block">
                     <span class="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">Engenheiro de Software Full Stack</span>
@@ -175,10 +174,8 @@
         </div>
     </footer>
 
-    <!-- AOS JS -->
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <!-- GSAP CDN -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <!-- Anime.js CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
