@@ -121,9 +121,9 @@ const Hero = () => {
             variants={item}
             className="text-4xl md:text-6xl font-bold mb-6 leading-tight text-slate-900 dark:text-white"
           >
-            De Mecânico Industrial a <br className="hidden md:block" />
+            Arquitetando o Futuro Digital <br className="hidden md:block" />
             <span className="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
-              Engenheiro de Software Full Stack
+              com Soluções Escaláveis.
             </span>
           </motion.h1>
 
@@ -131,8 +131,9 @@ const Hero = () => {
             variants={item}
             className="text-lg md:text-xl text-slate-600 dark:text-slate-400 mb-10 max-w-2xl mx-auto"
           >
-            Unindo a precisão da indústria com a inovação do código.
-            Especialista em resolver problemas complexos.
+            Engenheiro de Software especializado em transformar necessidades de
+            negócio em sistemas de alta performance, seguros e prontos para o
+            crescimento.
           </motion.p>
 
           <motion.a
