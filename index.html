@@ -24,6 +24,20 @@
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
+                    },
+                    keyframes: {
+                        'float-slow': {
+                            '0%, 100%': { transform: 'translateY(0) scale(1)' },
+                            '50%': { transform: 'translateY(-20px) scale(1.05)' },
+                        },
+                        'spin-slow': {
+                            'from': { transform: 'rotate(0deg)' },
+                            'to': { transform: 'rotate(360deg)' },
+                        }
+                    },
+                    animation: {
+                        'float-slow': 'float-slow 6s ease-in-out infinite',
+                        'spin-slow': 'spin-slow 12s linear infinite',
                     }
                 }
             }
