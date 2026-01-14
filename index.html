@@ -1,25 +1,77 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfólio | Lino.dev</title>
+    <!-- AOS CSS -->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
 
-    <header data-aos="fade-down">
-        <div class="container header-container">
-            <a href="#" class="logo">Lino.dev</a>
-            <button id="menu-btn" class="menu-btn" aria-label="Menu Mobile">☰</button>
+    <!-- Tailwind CSS CDN & Config -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            light: '#f8fafc',  // Slate 50
+                            dark: '#0f172a',   // Slate 900
+                            cardLight: '#ffffff',
+                            cardDark: '#1e293b', // Slate 800
+                            primary: '#3b82f6', // Blue 500
+                            accent: '#2563eb', // Blue 600
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-brand-light text-slate-800 dark:bg-brand-dark dark:text-slate-100 transition-colors duration-300 antialiased">
+
+    <!-- Header -->
+    <header class="fixed w-full top-0 z-50 bg-white/80 dark:bg-brand-dark/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 transition-colors duration-300" data-aos="fade-down">
+        <div class="container mx-auto px-6 h-20 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent hover:scale-105 transition-transform">
+                Lino.dev
+            </a>
+
+            <!-- Mobile Menu Button -->
+            <button id="menu-btn" class="md:hidden text-2xl text-slate-800 dark:text-white p-2 focus:outline-none" aria-label="Menu Mobile">
+                ☰
+            </button>
+
+            <!-- Navigation -->
             <nav>
-                <ul class="nav-links">
-                    <li><a href="#hero">Início</a></li>
-                    <li><a href="#sobre">Sobre</a></li>
-                    <li><a href="#projetos">Projetos</a></li>
+                <ul id="nav-links" class="hidden md:flex items-center gap-8">
+                    <li><a href="#hero" class="text-slate-600 dark:text-slate-300 hover:text-brand-primary dark:hover:text-brand-primary font-medium transition-colors">Início</a></li>
+                    <li><a href="#sobre" class="text-slate-600 dark:text-slate-300 hover:text-brand-primary dark:hover:text-brand-primary font-medium transition-colors">Sobre</a></li>
+                    <li><a href="#projetos" class="text-slate-600 dark:text-slate-300 hover:text-brand-primary dark:hover:text-brand-primary font-medium transition-colors">Projetos</a></li>
                     <li>
-                        <button id="theme-btn" aria-label="Alternar Tema">🌓</button>
+                        <button id="theme-btn" class="text-xl p-2 rounded-full hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors" aria-label="Alternar Tema">
+                            🌓
+                        </button>
+                    </li>
+                </ul>
+                <!-- Mobile Navigation (Hidden by default) -->
+                <ul id="mobile-menu" class="hidden absolute top-[100%] right-0 w-64 bg-white dark:bg-brand-cardDark flex-col items-center py-6 shadow-2xl rounded-bl-xl border-b border-l border-gray-100 dark:border-gray-700 origin-top-right z-50">
+                    <li class="w-full text-center"><a href="#hero" class="block py-3 text-slate-600 dark:text-slate-300 hover:text-brand-primary">Início</a></li>
+                    <li class="w-full text-center"><a href="#sobre" class="block py-3 text-slate-600 dark:text-slate-300 hover:text-brand-primary">Sobre</a></li>
+                    <li class="w-full text-center"><a href="#projetos" class="block py-3 text-slate-600 dark:text-slate-300 hover:text-brand-primary">Projetos</a></li>
+                    <li class="w-full text-center mt-4 border-t border-gray-100 dark:border-gray-700 pt-4">
+                        <button id="theme-btn-mobile" class="text-xl p-2" aria-label="Alternar Tema">
+                            🌓
+                        </button>
                     </li>
                 </ul>
             </nav>
@@ -27,73 +79,99 @@
     </header>
 
     <main>
-        <section id="hero">
-            <div class="container hero-content">
-                <p class="greeting" data-aos="fade-right">Olá, sou Zacarias Ramos</p>
-                <h1 data-aos="fade-right" data-aos-delay="200">De Mecânico Industrial a <br> Engenheiro de Software Full Stack</h1>
-                <p data-aos="fade-right" data-aos-delay="400" style="margin-bottom: 30px; color: var(--secondary-color);">Unindo a precisão da indústria com a inovação do código. Especialista em resolver problemas complexos.</p>
-                <a href="#projetos" class="cta-btn" data-aos="fade-up" data-aos-delay="600">Ver Projetos</a>
+        <!-- Hero Section -->
+        <section id="hero" class="min-h-screen flex flex-col justify-center items-center text-center px-4 pt-20 relative overflow-hidden">
+            <!-- Background element -->
+            <div class="absolute inset-0 bg-gradient-to-b from-blue-50/50 to-transparent dark:from-blue-900/10 dark:to-transparent -z-10"></div>
+
+            <div class="max-w-4xl mx-auto">
+                <p class="text-brand-primary font-semibold tracking-wide mb-4" data-aos="fade-right">Olá, sou Zacarias Ramos</p>
+                <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight text-slate-900 dark:text-white" data-aos="fade-right" data-aos-delay="200">
+                    De Mecânico Industrial a <br class="hidden md:block">
+                    <span class="bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">Engenheiro de Software Full Stack</span>
+                </h1>
+                <p class="text-lg md:text-xl text-slate-600 dark:text-slate-400 mb-10 max-w-2xl mx-auto" data-aos="fade-right" data-aos-delay="400">
+                    Unindo a precisão da indústria com a inovação do código. Especialista em resolver problemas complexos.
+                </p>
+                <a href="#projetos" class="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-full shadow-lg hover:shadow-blue-500/30 hover:-translate-y-1 transition-all duration-300" data-aos="fade-up" data-aos-delay="600">
+                    Ver Projetos
+                </a>
             </div>
         </section>
 
-        <section id="sobre">
-            <div class="container">
-                <h2 data-aos="fade-right">Sobre Mim</h2>
-                <p data-aos="fade-up">Com sólida experiência em mecânica industrial e design gráfico, trago uma visão prática para o desenvolvimento de software. Atualmente graduando em Engenharia de Software, estou focado em criar soluções como o KRAFLO (CMMS) que conectam o chão de fábrica à tecnologia web.</p>
+        <!-- Sobre Section -->
+        <section id="sobre" class="py-24 px-4 bg-white dark:bg-brand-dark">
+            <div class="container mx-auto max-w-4xl">
+                <h2 class="text-3xl font-bold mb-8 text-slate-900 dark:text-white relative inline-block after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-1 after:bg-blue-500 after:rounded-full" data-aos="fade-right">Sobre Mim</h2>
+                <p class="text-lg text-slate-600 dark:text-slate-300 leading-relaxed" data-aos="fade-up">
+                    Com sólida experiência em mecânica industrial e design gráfico, trago uma visão prática para o desenvolvimento de software. Atualmente graduando em Engenharia de Software, estou focado em criar soluções como o KRAFLO (CMMS) que conectam o chão de fábrica à tecnologia web.
+                </p>
             </div>
         </section>
 
-        <section id="habilidades">
-            <div class="container">
-                <h2 data-aos="fade-right">Minhas Habilidades</h2>
-                <div class="skills-grid">
-                    <div class="skill-category" data-aos="flip-up">
-                        <h3>Hard Skills</h3>
-                        <div class="skill-list">
-                            <span class="skill-tag">HTML5</span>
-                            <span class="skill-tag">CSS3</span>
-                            <span class="skill-tag">JavaScript</span>
-                            <span class="skill-tag">Git</span>
-                            <span class="skill-tag">Manutenção Industrial</span>
+        <!-- Habilidades Section -->
+        <section id="habilidades" class="py-24 px-4 bg-slate-50 dark:bg-[#162032]">
+            <div class="container mx-auto max-w-5xl">
+                <h2 class="text-3xl font-bold mb-12 text-slate-900 dark:text-white relative inline-block after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-1 after:bg-blue-500 after:rounded-full" data-aos="fade-right">Minhas Habilidades</h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Hard Skills -->
+                    <div class="bg-white dark:bg-brand-cardDark p-8 rounded-2xl shadow-md" data-aos="flip-up">
+                        <h3 class="text-xl font-bold mb-6 text-slate-900 dark:text-white border-b-2 border-blue-500 inline-block pb-2">Hard Skills</h3>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="px-4 py-2 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 rounded-lg text-sm font-medium hover:text-blue-600 hover:border-blue-500 border border-transparent transition-all shadow-sm hover:shadow-md cursor-default">HTML5</span>
+                            <span class="px-4 py-2 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 rounded-lg text-sm font-medium hover:text-blue-600 hover:border-blue-500 border border-transparent transition-all shadow-sm hover:shadow-md cursor-default">CSS3</span>
+                            <span class="px-4 py-2 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 rounded-lg text-sm font-medium hover:text-blue-600 hover:border-blue-500 border border-transparent transition-all shadow-sm hover:shadow-md cursor-default">JavaScript</span>
+                            <span class="px-4 py-2 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 rounded-lg text-sm font-medium hover:text-blue-600 hover:border-blue-500 border border-transparent transition-all shadow-sm hover:shadow-md cursor-default">Tailwind CSS</span>
+                            <span class="px-4 py-2 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 rounded-lg text-sm font-medium hover:text-blue-600 hover:border-blue-500 border border-transparent transition-all shadow-sm hover:shadow-md cursor-default">Git</span>
+                            <span class="px-4 py-2 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 rounded-lg text-sm font-medium hover:text-blue-600 hover:border-blue-500 border border-transparent transition-all shadow-sm hover:shadow-md cursor-default">Manutenção Industrial</span>
                         </div>
                     </div>
-                    <div class="skill-category" data-aos="flip-up" data-aos-delay="200">
-                        <h3>Soft Skills</h3>
-                        <div class="skill-list">
-                            <span class="skill-tag soft">Resolução de Problemas</span>
-                            <span class="skill-tag soft">Liderança Técnica</span>
+
+                    <!-- Soft Skills -->
+                    <div class="bg-white dark:bg-brand-cardDark p-8 rounded-2xl shadow-md" data-aos="flip-up" data-aos-delay="200">
+                        <h3 class="text-xl font-bold mb-6 text-slate-900 dark:text-white border-b-2 border-blue-500 inline-block pb-2">Soft Skills</h3>
+                        <div class="flex flex-wrap gap-3">
+                            <span class="px-4 py-2 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 rounded-lg text-sm font-medium border-l-4 border-blue-500 shadow-sm">Resolução de Problemas</span>
+                            <span class="px-4 py-2 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 rounded-lg text-sm font-medium border-l-4 border-blue-500 shadow-sm">Liderança Técnica</span>
+                            <span class="px-4 py-2 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 rounded-lg text-sm font-medium border-l-4 border-blue-500 shadow-sm">Comunicação</span>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="projetos">
-            <div class="container">
-                <h2 data-aos="fade-right">Meus Projetos</h2>
-                <div class="projects-grid">
+        <!-- Projetos Section -->
+        <section id="projetos" class="py-24 px-4 bg-white dark:bg-brand-dark">
+            <div class="container mx-auto max-w-5xl">
+                <h2 class="text-3xl font-bold mb-12 text-slate-900 dark:text-white relative inline-block after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-1 after:bg-blue-500 after:rounded-full" data-aos="fade-right">Meus Projetos</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <!-- Project Card: KRAFLO -->
-                    <article class="project-card kraflo-card" data-aos="fade-up">
-                        <div class="card-header">
-                            <h3>KRAFLO - Sistema CMMS</h3>
+                    <article class="group bg-white dark:bg-brand-cardDark rounded-2xl shadow-lg border border-gray-100 dark:border-gray-700 overflow-hidden hover:-translate-y-2 transition-transform duration-300" data-aos="fade-up">
+                        <div class="p-6">
+                            <h3 class="text-xl font-bold mb-3 text-blue-600 dark:text-blue-400 group-hover:text-blue-500 transition-colors">KRAFLO - Sistema CMMS</h3>
+                            <p class="text-slate-600 dark:text-slate-400 mb-6 text-sm leading-relaxed">
+                                Sistema de Gerenciamento de Manutenção Computadorizada focado em indústrias. Arquitetura modular e manutenção preditiva.
+                            </p>
+                            <div class="flex flex-wrap gap-2 mb-6">
+                                <span class="px-2 py-1 text-xs font-semibold bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-full">HTML5</span>
+                                <span class="px-2 py-1 text-xs font-semibold bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-full">CSS3</span>
+                                <span class="px-2 py-1 text-xs font-semibold bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-full">JavaScript</span>
+                                <span class="px-2 py-1 text-xs font-semibold bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-full">Industrial</span>
+                            </div>
+                            <a href="#" class="inline-flex items-center text-sm font-semibold text-blue-600 dark:text-blue-400 hover:gap-2 transition-all">
+                                Ver detalhes <span class="ml-1 text-lg">&rarr;</span>
+                            </a>
                         </div>
-                        <p class="card-desc">Sistema de Gerenciamento de Manutenção Computadorizada focado em indústrias. Arquitetura modular e manutenção preditiva.</p>
-                        <div class="card-badges">
-                            <span class="badge">HTML5</span>
-                            <span class="badge">CSS3</span>
-                            <span class="badge">JavaScript</span>
-                            <span class="badge">Industrial</span>
-                        </div>
-                        <a href="#" class="card-link">Ver detalhes &rarr;</a>
                     </article>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 Lino.dev. Todos os direitos reservados.</p>
+    <footer class="py-8 bg-white dark:bg-brand-dark border-t border-gray-200 dark:border-gray-800">
+        <div class="container mx-auto text-center px-4">
+            <p class="text-slate-500 dark:text-slate-500 text-sm">&copy; 2026 Lino.dev. Todos os direitos reservados.</p>
         </div>
     </footer>
 

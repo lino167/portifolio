@@ -1,45 +1,56 @@
 document.addEventListener('DOMContentLoaded', () => {
+    // Selectors
     const themeBtn = document.getElementById('theme-btn');
+    const themeBtnMobile = document.getElementById('theme-btn-mobile');
     const menuBtn = document.getElementById('menu-btn');
-    const navLinks = document.querySelector('.nav-links');
-    const body = document.body;
+    const navLinks = document.getElementById('nav-links'); // Desktop
+    const mobileMenu = document.getElementById('mobile-menu'); // Mobile
+    const html = document.documentElement;
 
-    // Mobile Menu Toggle
-    menuBtn.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-    });
-
-    // Close menu when a link is clicked
-    document.querySelectorAll('.nav-links a').forEach(link => {
-        link.addEventListener('click', () => {
-            navLinks.classList.remove('active');
-        });
-    });
-
-    // 1. Check LocalStorage for saved preference
-    const savedTheme = localStorage.getItem('theme');
-
-    // Apply saved theme if 'dark'
-    if (savedTheme === 'dark') {
-        body.classList.add('dark-mode');
+    // --- Dark Mode Logic ---
+    function toggleTheme() {
+        if (html.classList.contains('dark')) {
+            html.classList.remove('dark');
+            localStorage.setItem('theme', 'light');
+        } else {
+            html.classList.add('dark');
+            localStorage.setItem('theme', 'dark');
+        }
     }
 
-    // 2. Toggle Event Listener
-    themeBtn.addEventListener('click', () => {
-        // Toggle class
-        body.classList.toggle('dark-mode');
+    // Apply saved theme on load
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        html.classList.add('dark');
+    } else {
+        html.classList.remove('dark');
+    }
 
-        // Save preference
-        if (body.classList.contains('dark-mode')) {
-            localStorage.setItem('theme', 'dark');
-        } else {
-            localStorage.setItem('theme', 'light');
-        }
-    });
+    // Theme Button Listeners
+    if(themeBtn) themeBtn.addEventListener('click', toggleTheme);
+    if(themeBtnMobile) themeBtnMobile.addEventListener('click', toggleTheme);
 
-    // 3. AOS Animation Initialization
+
+    // --- Mobile Menu Logic ---
+    if(menuBtn && mobileMenu) {
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('flex');
+        });
+
+        // Close menu when clicking links
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                mobileMenu.classList.remove('flex');
+            });
+        });
+    }
+
+    // --- AOS Animation Initialization ---
     AOS.init({
         duration: 1000,
-        once: true
+        once: true,
+        offset: 100
     });
 });
