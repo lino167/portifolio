@@ -24,7 +24,20 @@ const Skills = () => {
                 >
                     <h3 className="text-xl font-bold mb-6 text-slate-900 dark:text-white border-b-2 border-blue-500 inline-block pb-2">Hard Skills</h3>
                     <div className="flex flex-wrap gap-3">
-                        {["HTML5", "CSS3", "JavaScript", "React", "Node.js", "Tailwind CSS", "Git", "Manutenção Industrial"].map(skill => (
+                        {[
+                          "React / Next.js",
+                          "TypeScript",
+                          "Tailwind / Framer Motion",
+                          "Micro-Frontends",
+                          "Node.js (NestJS)",
+                          "Go (Golang)",
+                          "GraphQL / gRPC",
+                          "System Design",
+                          "AWS / Azure",
+                          "Docker & Kubernetes",
+                          "CI/CD Pipelines",
+                          "Terraform",
+                        ].map(skill => (
                             <span key={skill} className="px-4 py-2 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 rounded-lg text-sm font-medium hover:text-blue-600 hover:border-blue-500 border border-transparent transition-all shadow-sm hover:shadow-md cursor-default">
                                 {skill}
                             </span>
@@ -42,7 +55,12 @@ const Skills = () => {
                 >
                     <h3 className="text-xl font-bold mb-6 text-slate-900 dark:text-white border-b-2 border-blue-500 inline-block pb-2">Soft Skills</h3>
                     <div className="flex flex-wrap gap-3">
-                        {["Resolução de Problemas", "Liderança Técnica", "Comunicação", "Trabalho em Equipe", "Adaptabilidade"].map(skill => (
+                        {[
+                          "Liderança Técnica",
+                          "Mentoria",
+                          "Arquitetura de Soluções",
+                          "Comunicação Estratégica",
+                        ].map(skill => (
                             <span key={skill} className="px-4 py-2 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 rounded-lg text-sm font-medium border-l-4 border-blue-500 shadow-sm">
                                 {skill}
                             </span>
