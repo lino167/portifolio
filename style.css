@@ -142,6 +142,47 @@ section {
     opacity: 0.9;
 }
 
+/* Skills Section */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+}
+
+.skill-category h3 {
+    margin-bottom: 20px;
+    color: var(--text-color);
+    border-bottom: 2px solid var(--primary-color);
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+.skill-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.skill-tag {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow);
+}
+
+.skill-tag:hover {
+    transform: translateY(-3px);
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.skill-tag.soft {
+    border-left: 4px solid var(--secondary-color);
+}
+
 /* Projects - KRAFLO Card */
 .projects-grid {
     display: grid;
@@ -173,6 +214,14 @@ section {
 
 .project-card h3 {
     font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+.card-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 20px;
 }
 
 .badge {
@@ -187,6 +236,7 @@ section {
 .card-desc {
     color: var(--secondary-color);
     margin-bottom: 20px;
+    font-size: 0.95rem;
 }
 
 .card-link {
