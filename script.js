@@ -70,6 +70,21 @@ document.addEventListener('DOMContentLoaded', () => {
     if (projectsGrid) gridObserver.observe(projectsGrid);
 
 
+    // --- Timeline Observer ---
+    const timelineObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 }); // Trigger when 50% visible
+
+    document.querySelectorAll('.timeline-item').forEach(item => {
+        timelineObserver.observe(item);
+    });
+
+
     // --- Dark Mode Logic ---
     function toggleTheme() {
         if (html.classList.contains('dark')) {
