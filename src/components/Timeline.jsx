@@ -81,9 +81,9 @@ const Timeline = () => {
               }`}
             >
               <div
-                className={`bg-white dark:bg-gray-800 p-6 rounded-xl shadow-md border-l-4 ${
+                className={`bg-gray-100 dark:bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl shadow-sm hover:shadow-md border-l-4 ${
                   index % 2 !== 0 ? 'md:border-l-0 md:border-r-4' : ''
-                } border-blue-500 hover:shadow-xl transition-shadow`}
+                } border-blue-500 dark:border dark:border-gray-700 hover:dark:border-cyan-500/50 transition-colors`}
               >
                 <span className="text-blue-600 dark:text-blue-400 font-bold text-sm uppercase tracking-wider">
                   {item.year}

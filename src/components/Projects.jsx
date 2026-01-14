@@ -42,7 +42,7 @@ const Projects = () => {
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="group bg-white dark:bg-brand-cardDark rounded-2xl shadow-lg border border-gray-100 dark:border-gray-700 overflow-hidden hover:-translate-y-2 transition-transform duration-300"
+                    className="group bg-gray-100 dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl shadow-sm hover:shadow-md border border-gray-100 dark:border-gray-700 hover:dark:border-cyan-500/50 overflow-hidden transition-colors duration-300"
                 >
                     <div className="p-6">
                         <h3 className="text-xl font-bold mb-3 text-blue-600 dark:text-blue-400 group-hover:text-blue-500 transition-colors">Nexus FinTech Core</h3>
@@ -66,7 +66,7 @@ const Projects = () => {
                     initial={{ opacity: 0, y: 50 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
-                    className="group bg-white dark:bg-brand-cardDark rounded-2xl shadow-lg border border-gray-100 dark:border-gray-700 overflow-hidden hover:-translate-y-2 transition-transform duration-300"
+                    className="group bg-gray-100 dark:bg-gray-800/50 backdrop-blur-sm rounded-2xl shadow-sm hover:shadow-md border border-gray-100 dark:border-gray-700 hover:dark:border-cyan-500/50 overflow-hidden transition-colors duration-300"
                 >
                     <div className="p-6">
                         <h3 className="text-xl font-bold mb-3 text-blue-600 dark:text-blue-400 group-hover:text-blue-500 transition-colors">Vision AI Dashboard</h3>

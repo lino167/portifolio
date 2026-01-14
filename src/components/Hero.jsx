@@ -1,26 +1,31 @@
 import { motion } from 'framer-motion'
 import { useEffect, useRef } from 'react'
 import { animate } from 'animejs'
+import MagneticButton from './ui/MagneticButton'
 
 const Hero = () => {
   const shape1Ref = useRef(null)
   const shape2Ref = useRef(null)
   const ctaRef = useRef(null)
 
-  const container = {
+  const containerVariants = {
     hidden: { opacity: 0 },
-    show: {
+    visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.3,
+        staggerChildren: 0.3,
+        delayChildren: 0.2,
       },
     },
   }
 
-  const item = {
+  const itemVariants = {
     hidden: { y: 20, opacity: 0 },
-    show: { y: 0, opacity: 1, transition: { duration: 0.8, ease: 'easeOut' } },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: { type: 'spring', stiffness: 100 },
+    },
   }
 
   const letterContainer = {
@@ -64,21 +69,6 @@ const Hero = () => {
         loop: true,
       })
     }
-    if (ctaRef.current) {
-      const el = ctaRef.current
-      const onEnter = () => {
-        animate(el, { scale: [1, 1.05], duration: 200, easing: 'easeOutQuad' })
-      }
-      const onLeave = () => {
-        animate(el, { scale: 1, duration: 200, easing: 'easeOutQuad' })
-      }
-      el.addEventListener('mouseenter', onEnter)
-      el.addEventListener('mouseleave', onLeave)
-      return () => {
-        el.removeEventListener('mouseenter', onEnter)
-        el.removeEventListener('mouseleave', onLeave)
-      }
-    }
   }, [])
 
   return (
@@ -116,9 +106,13 @@ const Hero = () => {
           ))}
         </motion.p>
 
-        <motion.div variants={container} initial="hidden" animate="show">
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+        >
           <motion.h1
-            variants={item}
+            variants={itemVariants}
             className="text-4xl md:text-6xl font-bold mb-6 leading-tight text-slate-900 dark:text-white"
           >
             Arquitetando o Futuro Digital <br className="hidden md:block" />
@@ -128,7 +122,7 @@ const Hero = () => {
           </motion.h1>
 
           <motion.p
-            variants={item}
+            variants={itemVariants}
             className="text-lg md:text-xl text-slate-600 dark:text-slate-400 mb-10 max-w-2xl mx-auto"
           >
             Engenheiro de Software especializado em transformar necessidades de
@@ -136,14 +130,17 @@ const Hero = () => {
             crescimento.
           </motion.p>
 
-          <motion.a
-            variants={item}
-            href="#projetos"
-            className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-full shadow-lg hover:shadow-blue-500/30 hover:-translate-y-1 transition-all duration-300"
-            ref={ctaRef}
-          >
-            Ver Projetos
-          </motion.a>
+          <motion.div variants={itemVariants}>
+            <MagneticButton
+              onClick={() =>
+                document
+                  .getElementById('projetos')
+                  ?.scrollIntoView({ behavior: 'smooth' })
+              }
+            >
+              Ver Projetos
+            </MagneticButton>
+          </motion.div>
         </motion.div>
       </div>
     </section>

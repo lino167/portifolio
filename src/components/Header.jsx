@@ -13,7 +13,7 @@ const Header = ({ darkMode, toggleTheme }) => {
   ];
 
   return (
-    <header className="fixed w-full top-0 z-50 bg-white/80 dark:bg-brand-dark/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 transition-colors duration-300">
+    <header className="sticky top-0 z-50 w-full bg-white/70 dark:bg-gray-900/70 backdrop-blur-md border-b border-gray-200 dark:border-gray-800 transition-colors duration-300">
       <div className="container mx-auto px-6 h-20 flex justify-between items-center">
         <a href="#" className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent hover:scale-105 transition-transform">
           Lino.dev
