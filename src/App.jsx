@@ -37,7 +37,7 @@ function App() {
             <div className="container mx-auto max-w-4xl">
                 <h2 className="text-3xl font-bold mb-8 text-slate-900 dark:text-white relative inline-block after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-1 after:bg-blue-500 after:rounded-full">Sobre Mim</h2>
                 <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
-                    Com sólida experiência em mecânica industrial e design gráfico, trago uma visão prática para o desenvolvimento de software. Atualmente graduando em Engenharia de Software, estou focado em criar soluções como o KRAFLO (CMMS) que conectam o chão de fábrica à tecnologia web.
+                    Com mais de uma década de experiência combinando a precisão da mecânica industrial com a abstração da engenharia de software, eu não apenas escrevo código — eu desenho sistemas. Minha paixão é liderar equipes técnicas na construção de aplicações críticas, focando sempre em Clean Architecture, manutenibilidade e experiência do usuário.
                 </p>
             </div>
         </section>
