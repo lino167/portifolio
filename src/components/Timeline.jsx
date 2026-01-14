@@ -1,10 +1,21 @@
 import { motion } from 'framer-motion';
 
 const timelineData = [
-  { year: "2018 - 2023", title: "Mecânico Industrial", desc: "Atuação em manutenção corretiva e preventiva. Aqui desenvolvi meu raciocínio lógico e capacidade de resolver problemas críticos sob pressão." },
-  { year: "2024", title: "Transição de Carreira", desc: "Início da graduação em Engenharia de Software. Mergulho profundo em lógica de programação e algoritmos." },
-  { year: "2025", title: "O Nascimento do KRAFLO", desc: "Desenvolvimento do meu primeiro grande software (CMMS), unindo minha experiência industrial com minhas novas habilidades Full Stack." },
-  { year: "2026", title: "Desenvolvedor Full Stack", desc: "Pronto para desafios complexos, com domínio em HTML, CSS, JS, Tailwind e metodologias ágeis." }
+  {
+    year: "2022",
+    title: "Full Stack Developer",
+    desc: "Desenvolvimento de APIs RESTful de alta disponibilidade e interfaces reativas."
+  },
+  {
+    year: "2024",
+    title: "Tech Lead @ InovaSoft",
+    desc: "Responsável pela arquitetura do novo sistema financeiro e mentoria de desenvolvedores júnior/pleno."
+  },
+  {
+    year: "2026",
+    title: "Senior Software Engineer @ TechCorp",
+    desc: "Liderança de squad focado em modernização de legado e implementação de arquitetura de microsserviços."
+  }
 ];
 
 const Timeline = () => {
