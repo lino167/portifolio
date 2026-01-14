@@ -94,10 +94,16 @@
     <main>
         <!-- Hero Section -->
         <section id="hero" class="min-h-screen flex flex-col justify-center items-center text-center px-4 pt-20 relative overflow-hidden">
-            <!-- Background element -->
+            <!-- Background element (Gradient) -->
             <div class="absolute inset-0 bg-gradient-to-b from-blue-50/50 to-transparent dark:from-blue-900/10 dark:to-transparent -z-10"></div>
 
-            <div class="max-w-4xl mx-auto">
+            <!-- Object 1: Neon Circle -->
+            <div class="absolute top-1/4 left-1/4 w-64 h-64 bg-cyan-500/30 rounded-full blur-3xl animate-float-slow -z-10"></div>
+
+            <!-- Object 2: Contour Diamond -->
+            <div class="absolute bottom-1/4 right-1/4 w-48 h-48 border-2 border-blue-500/50 rotate-45 animate-spin-slow -z-10"></div>
+
+            <div class="max-w-4xl mx-auto relative z-10">
                 <p id="hero-greeting" class="hero-element text-brand-primary font-semibold tracking-wide mb-4">Olá, sou Zacarias Ramos</p>
                 <h1 class="hero-element text-4xl md:text-6xl font-bold mb-6 leading-tight text-slate-900 dark:text-white">
                     De Mecânico Industrial a <br class="hidden md:block">
