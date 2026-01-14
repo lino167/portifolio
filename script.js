@@ -37,21 +37,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // 3. ScrollReveal Initialization
-    const sr = ScrollReveal({
-        origin: 'top',
-        distance: '50px',
+    // 3. AOS Animation Initialization
+    AOS.init({
         duration: 1000,
-        reset: false       // Animations reveal only once
+        once: true
     });
-
-    // Reveal Rules
-    sr.reveal('.logo, .nav-links li, #theme-btn', { interval: 100 });
-    sr.reveal('#hero h1', { delay: 200, origin: 'left' });
-    sr.reveal('.greeting', { delay: 100, origin: 'bottom' });
-    sr.reveal('.cta-btn', { delay: 400, origin: 'bottom' });
-    sr.reveal('.section-title, #sobre h2, #habilidades h2, #projetos h2', { origin: 'left' });
-    sr.reveal('#sobre p', { delay: 200 });
-    sr.reveal('.skill-category', { interval: 200, origin: 'bottom' });
-    sr.reveal('.project-card', { interval: 200, origin: 'bottom' });
 });
