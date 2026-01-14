@@ -28,4 +28,29 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.section').forEach(section => {
         observer.observe(section);
     });
+
+    // Theme Switcher Logic
+    const themeToggle = document.getElementById('theme-toggle');
+    const htmlElement = document.documentElement;
+    const iconSpan = themeToggle.querySelector('.icon');
+
+    // Check for saved user preference
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+        htmlElement.setAttribute('data-theme', savedTheme);
+        updateIcon(savedTheme);
+    }
+
+    themeToggle.addEventListener('click', () => {
+        const currentTheme = htmlElement.getAttribute('data-theme');
+        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+
+        htmlElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        updateIcon(newTheme);
+    });
+
+    function updateIcon(theme) {
+        iconSpan.textContent = theme === 'light' ? '🌙' : '☀️';
+    }
 });

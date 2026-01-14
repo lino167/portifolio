@@ -12,6 +12,28 @@
     --container-width: 1200px;
     --header-height: 80px;
     --radius-md: 12px;
+
+    /* Component Backgrounds */
+    --header-bg: rgba(15, 23, 42, 0.8);
+    --card-bg: rgba(30, 41, 59, 0.7);
+    --card-border: rgba(255, 255, 255, 0.1);
+    --hover-bg: rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="light"] {
+    --bg-color: #f8fafc;
+    --surface-color: #ffffff;
+    --primary-color: #0284c7; /* Darker blue for better contrast on white */
+    --primary-hover: #0369a1;
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+    --border-color: #e2e8f0;
+
+    /* Light Mode Component Backgrounds */
+    --header-bg: rgba(255, 255, 255, 0.8);
+    --card-bg: rgba(255, 255, 255, 0.7);
+    --card-border: rgba(0, 0, 0, 0.1);
+    --hover-bg: rgba(0, 0, 0, 0.05);
 }
 
 * {
@@ -41,7 +63,7 @@ body {
 /* Header */
 .header {
     height: var(--header-height);
-    background-color: rgba(15, 23, 42, 0.8);
+    background-color: var(--header-bg);
     backdrop-filter: blur(10px);
     position: fixed;
     width: 100%;
@@ -84,6 +106,28 @@ body {
     color: var(--primary-color);
 }
 
+.theme-toggle {
+    background: none;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    transition: transform 0.3s ease;
+}
+
+.theme-toggle:hover {
+    background-color: transparent;
+    transform: rotate(15deg) scale(1.1);
+    color: var(--primary-color);
+    border-color: transparent;
+}
+
 /* Buttons */
 .btn {
     display: inline-block;
@@ -111,7 +155,7 @@ body {
 
 .btn-outline:hover {
     border-color: var(--text-primary);
-    background-color: rgba(255, 255, 255, 0.05);
+    background-color: var(--hover-bg);
 }
 
 /* Sections */
@@ -220,11 +264,11 @@ body {
 }
 
 .project-card {
-    background-color: rgba(30, 41, 59, 0.7);
+    background-color: var(--card-bg);
     backdrop-filter: blur(10px);
     border-radius: var(--radius-md);
     overflow: hidden;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid var(--card-border);
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
