@@ -78,6 +78,7 @@ header {
     display: flex;
     list-style: none;
     gap: 30px;
+    align-items: center; /* Ensure button aligns with text */
 }
 
 .nav-links a {
@@ -91,6 +92,7 @@ header {
     color: var(--primary-color);
 }
 
+/* Theme Button (Inside Nav) */
 #theme-btn {
     background: transparent;
     border: none;
@@ -99,17 +101,14 @@ header {
     padding: 5px;
     border-radius: 50%;
     transition: transform 0.3s;
+    display: flex; /* Fix alignment */
 }
 
 #theme-btn:hover {
     transform: rotate(15deg) scale(1.1);
 }
 
-.header-controls {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
+/* Removed separate header-controls container for cleaner layout */
 
 .menu-btn {
     display: none; /* Hidden on desktop */
@@ -129,14 +128,20 @@ header {
     .nav-links {
         display: none; /* Hidden by default */
         position: absolute;
-        top: 70px;
-        left: 0;
-        width: 100%;
-        background-color: var(--header-bg);
+        top: 100%;
+        right: 0;
+        left: auto;
+        width: 250px;
+        background-color: var(--header-bg); /* Explicit background */
+        backdrop-filter: blur(10px);
         flex-direction: column;
         align-items: center;
         padding: 20px 0;
         border-bottom: 1px solid var(--border-color);
+        box-shadow: -2px 5px 10px rgba(0,0,0,0.3);
+        border-bottom-left-radius: 8px;
+        transform-origin: top right;
+        z-index: 1000;
     }
 
     .nav-links.active {

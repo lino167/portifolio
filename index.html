@@ -11,17 +11,17 @@
     <header>
         <div class="container header-container">
             <a href="#" class="logo">Lino.dev</a>
+            <button id="menu-btn" class="menu-btn" aria-label="Menu Mobile">☰</button>
             <nav>
                 <ul class="nav-links">
                     <li><a href="#hero">Início</a></li>
                     <li><a href="#sobre">Sobre</a></li>
                     <li><a href="#projetos">Projetos</a></li>
+                    <li>
+                        <button id="theme-btn" aria-label="Alternar Tema">🌓</button>
+                    </li>
                 </ul>
             </nav>
-            <div class="header-controls">
-                <button id="theme-btn" aria-label="Alternar Tema">🌓</button>
-                <button id="menu-btn" class="menu-btn" aria-label="Menu Mobile">☰</button>
-            </div>
         </div>
     </header>
 
@@ -95,6 +95,8 @@
         </div>
     </footer>
 
+    <!-- ScrollReveal CDN -->
+    <script src="https://unpkg.com/scrollreveal"></script>
     <script src="script.js"></script>
 </body>
 </html>
