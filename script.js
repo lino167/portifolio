@@ -7,6 +7,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const mobileMenu = document.getElementById('mobile-menu'); // Mobile
     const html = document.documentElement;
 
+    // --- GSAP Hero Animation ---
+    gsap.from(".hero-element", {
+        duration: 1,
+        y: -50,
+        opacity: 0,
+        stagger: 0.2,
+        ease: "power2.out"
+    });
+
     // --- Dark Mode Logic ---
     function toggleTheme() {
         if (html.classList.contains('dark')) {
